@@ -1,0 +1,22 @@
+GET http://localhost:3000/shortenURL
+###
+POST http://localhost:3000/shortenURL
+Content-Type: application/json
+
+{
+    "source": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+}
+
+###
+GET http://localhost:3000/shortenURL/rqzla_SHP3w
+
+###
+DELETE http://localhost:3000/shortenURL/rqzla_SHP3w
+
+###
+PATCH http://localhost:3000/shortenURL/rqzla_SHP3w
+Content-Type: application/json
+
+{
+    "source": "https://www.youtube.com/watch?v=djV11Xbc914" 
+}

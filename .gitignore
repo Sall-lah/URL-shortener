@@ -1,0 +1,3 @@
+# Git Ignore (Biar pas di push ke github file tersebut gak bakalan ikut ke push)
+.env
+node_modules
