@@ -8,7 +8,6 @@ const getSource = async (req, res, next) => {
     let detail;
     try{
         detail = await link.findOne({ UID: req.params.UID});
-        console.log(detail);
         // Jika id tidak ditemukan maka kembalikan pesan bahwa id tidak ditemukan dan hentikan proses
         if (detail == null){
             return res.status(404).json({ massage: "Not Found" });

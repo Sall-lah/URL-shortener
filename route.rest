@@ -4,7 +4,7 @@ POST http://localhost:3000/shortenURL
 Content-Type: application/json
 
 {
-    "source": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    "source": "https://myaccount.google.com/u/0/?utm_source=YouTubeWeb&tab=rk&utm_medium=act&gar=WzgwLCIyMzMzODciXQ&tab=rk&hl=en"
 }
 
 ###

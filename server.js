@@ -10,6 +10,11 @@ const app = express();
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection;
+
+// Middleware
+app.use(express.json()); // Parses incoming JSON requests
+app.use(express.urlencoded({ extended: false })); // Parses URL-encoded data
+
 // When database error
 db.on('error', (error) => {console.log(error)});
 // Once database is connected
@@ -21,7 +26,7 @@ app.use(express.json());
 // Setting up Routes when the URL /contacts is called
 const contactsRouter = require('./routes/shortenURL.js');
 // BTW this is the link to the api => "/shortenURL"
-app.use('/shortenURL', contactsRouter);
+app.use('/api', contactsRouter);
 
 // Start server on port
 app.listen(port, () => {
