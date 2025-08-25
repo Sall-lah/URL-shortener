@@ -1,0 +1,38 @@
+<h1 class="display-4 text-center fw-bold">Shorten Your URL</h1>
+<% if (!valid) { %>
+<div class="alert alert-warning" role="alert">
+  Enter a Valid URL!
+</div>
+<% } %>
+<form action="/" method="post">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name=source placeholder="Paste Your URL Here">
+        <button type="submit" class="input-group-text">Shorten</button>
+    </div>
+</form>
+
+<!-- If the URL is Inputed to server -->
+<% if (responseData) { %>
+<div class="input-group mb-3">
+    <label class="input-group-text">Shortened URL</label>
+    <input type="text" id="URL" class="form-control" value="<%= url + '/' + responseData.UID %>" disabled>
+    <button id="copy" class="input-group-text">Copy new URL</button>
+</div>
+
+<!-- Copy URL to Clipboard -->
+<script>
+    const URL = document.getElementById("URL").value;
+    document.getElementById('copy').addEventListener('click', async() => {
+        try{
+            await navigator.clipboard.writeText(URL);
+            alert('Text coppied to clipboard');
+        }
+        catch(e){
+            alert(e);
+        }
+    })
+</script>
+<% } %>
+
+<!-- Validation Script -->
+<script src="../../validation.js"></script>

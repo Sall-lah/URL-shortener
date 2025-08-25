@@ -13,7 +13,6 @@ const db = mongoose.connection;
 
 // Middleware
 app.use(express.json()); // Parses incoming JSON requests
-app.use(express.urlencoded({ extended: false })); // Parses URL-encoded data
 
 // When database error
 db.on('error', (error) => {console.log(error)});

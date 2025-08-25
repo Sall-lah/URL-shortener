@@ -42,11 +42,10 @@ router.post('/', async (req, res) => {
     const newLink = new link({
         UID: crypto.randomBytes(8).toString('base64url'),
         source: req.body.source,
-    })
-    console.log(newLink);
+    });
     try{
         await link.insertOne(newLink);
-        res.status(201).json({ massage: `Your shortened link is: ${newLink.UID}` });
+        res.status(201).json(newLink);
     }
     catch(e){
         res.status(400).json({ massage: e.massage });
